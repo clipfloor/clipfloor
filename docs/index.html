@@ -3,77 +3,115 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quanto paga clipagem por 1000 visualizações? A conta que ninguém mostra</title>
-<meta name="description" content="Medi as 46 campanhas de clipagem que estavam no ar em 04/09/2026 e calculei o piso de cada uma: quantas views um post precisa para pagar o primeiro centavo. Em 117 das 118 faixas de pagamento, quem tem mediana baixa recebe zero. Calculadora grátis e tabela completa.">
-<link rel="canonical" href="https://boyxgirlsnowboarding-cyber.github.io/clipfloor/">
-<meta property="og:title" content="Quanto paga clipagem por 1000 visualizações? A conta que ninguém mostra">
-<meta property="og:description" content="46 campanhas medidas. Em 117 de 118 faixas de pagamento, mediana baixa recebe zero. Calculadora grátis.">
+<meta name="description" content="Medi as 46 campanhas de clipagem que estavam no ar em 04/09/2026 e calculei o piso de cada uma: quantas views um post precisa para pagar o primeiro centavo. Em 117 das 118 faixas de pagamento, quem tem mediana baixa recebe zero. Calculadora gratis e tabela completa.">
+<meta name="robots" content="index,follow">
 <meta property="og:type" content="article">
+<meta property="og:title" content="Quanto paga clipagem por 1000 visualizacoes?">
+<meta property="og:description" content="46 campanhas medidas. Em 117 de 118 faixas de pagamento, mediana baixa recebe zero. Calculadora gratis.">
+<title>Quanto paga clipagem por 1000 visualizações?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
   :root{
-    --bg:#0d1117; --panel:#161b22; --line:#30363d; --fg:#c9d1d9; --hi:#ffffff;
-    --dim:#8b949e; --green:#3fb950; --red:#f85149; --yel:#d29922; --blue:#58a6ff;
+    --bg:#0d1117; --panel:#161b22; --raise:#1c2129; --line:#30363d;
+    --fg:#c8d2dd; --hi:#ffffff; --dim:#8792a2;
+    --green:#3fb950; --red:#f85149; --yel:#d6a13a; --blue:#6cb1ff;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--fg);
-    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
-  header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
-  h1{font-size:2.1rem;line-height:1.2;margin:0 0 14px;color:var(--hi);letter-spacing:-.02em}
-  h2{font-size:1.4rem;color:var(--hi);margin:44px 0 12px;letter-spacing:-.01em}
-  h3{font-size:1.05rem;color:var(--hi);margin:26px 0 8px}
-  .lede{font-size:1.12rem;color:var(--dim);margin:0}
-  p{margin:0 0 14px}
-  code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  .formula{background:var(--panel);border:1px solid var(--line);border-radius:10px;
-    padding:18px 20px;margin:18px 0;font-family:ui-monospace,Menlo,monospace;
-    font-size:1.05rem;color:var(--yel);overflow-x:auto}
-  .destaque{color:var(--red);font-weight:600}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+
+  header{padding:60px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dim);margin:0 0 18px}
+  h1{font-size:clamp(1.85rem,5vw,2.6rem);line-height:1.12;margin:0 0 16px;
+    color:var(--hi);font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+  .lede{font-size:1.13rem;color:var(--dim);margin:0;max-width:62ch}
+  .lede strong{color:var(--red);font-weight:600}
+
+  h2{font-size:1.42rem;color:var(--hi);margin:52px 0 14px;font-weight:600;
+    letter-spacing:-.015em;text-wrap:balance}
+  h3{font-size:1.04rem;color:var(--hi);margin:28px 0 8px;font-weight:600}
+  p{margin:0 0 15px;max-width:66ch}
+  ul,ol{padding-left:22px;max-width:66ch} li{margin-bottom:8px}
+  a{color:var(--blue);text-decoration-color:#6cb1ff55;text-underline-offset:3px}
+  a:hover{text-decoration-color:var(--blue)}
+  a:focus-visible,input:focus-visible,th:focus-visible{outline:2px solid var(--blue);
+    outline-offset:2px;border-radius:4px}
+  .mono{font-family:var(--mono);font-size:.94em}
+  .zero{color:var(--red);font-weight:600}
   .ok{color:var(--green)}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;margin:22px 0}
-  label{display:block;font-size:.85rem;color:var(--dim);margin-bottom:5px}
-  .campos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+
+  .formula{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--yel);
+    border-radius:8px;padding:20px 22px;margin:22px 0;font-family:var(--mono);
+    font-size:1.06rem;color:var(--yel);overflow-x:auto;letter-spacing:-.01em}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:24px;margin:24px 0}
+  .campos{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+  label{display:block;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--dim);margin-bottom:7px}
   input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;
-    color:var(--fg);padding:10px 12px;font-size:1rem;font-family:ui-monospace,Menlo,monospace}
+    color:var(--hi);padding:11px 13px;font-size:1rem;font-family:var(--mono);
+    font-variant-numeric:tabular-nums}
   input:focus{outline:none;border-color:var(--blue)}
-  #saida{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);
-    font-family:ui-monospace,Menlo,monospace;font-size:1rem;line-height:1.9}
-  .num{color:var(--hi);font-weight:600}
-  table{width:100%;border-collapse:collapse;font-size:.85rem;
-    font-family:ui-monospace,Menlo,monospace}
-  .tabela-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:16px 0}
-  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-  th{background:var(--panel);color:var(--dim);font-weight:600;position:sticky;top:0;
-    cursor:pointer;user-select:none;font-size:.78rem;letter-spacing:.03em}
+  #saida{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:.98rem;line-height:1.95;
+    font-variant-numeric:tabular-nums}
+  .num{color:var(--hi);font-weight:700}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;margin:26px 0}
+  .stat{background:var(--panel);padding:18px 20px}
+  .stat b{display:block;font-size:1.75rem;color:var(--hi);font-family:var(--mono);
+    font-weight:700;line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+  .stat span{font-size:.83rem;color:var(--dim);display:block;margin-top:4px}
+
+  .filtro{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:20px 0 0}
+  .filtro input{max-width:280px;font-size:.9rem}
+  #contagem{font-family:var(--mono);color:var(--dim);font-size:.83rem}
+
+  .tabela-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;
+    margin:16px 0;max-height:560px;overflow-y:auto}
+  table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.84rem;
+    font-variant-numeric:tabular-nums}
+  th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{background:var(--raise);color:var(--dim);font-weight:500;position:sticky;top:0;z-index:1;
+    cursor:pointer;user-select:none;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase}
   th:hover{color:var(--hi)}
-  tbody tr:hover{background:#1c2129}
-  tr:last-child td{border-bottom:none}
-  .nome{white-space:normal;min-width:200px;color:var(--fg)}
-  .filtro{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
-  .filtro input{max-width:260px}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:22px 0}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
-  .stat b{display:block;font-size:1.6rem;color:var(--hi);
-    font-family:ui-monospace,Menlo,monospace;line-height:1.2}
-  .stat span{font-size:.82rem;color:var(--dim)}
+  th[data-col="veredito"]{cursor:default}
+  tbody tr:hover{background:var(--raise)}
+  tbody tr:last-child td{border-bottom:none}
+  .nome{white-space:normal;min-width:230px;color:var(--fg)}
+  .org{color:var(--dim);font-size:.88em;display:block}
+
   .cta{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--green);
-    border-radius:10px;padding:20px 22px;margin:34px 0}
-  .cta a{color:var(--blue)}
-  a{color:var(--blue)}
-  footer{border-top:1px solid var(--line);margin-top:48px;padding:26px 0 60px;
+    border-radius:10px;padding:22px 24px;margin:38px 0}
+  .cta h3{margin-top:0}
+  .fine{font-size:.86rem;color:var(--dim)}
+
+  footer{border-top:1px solid var(--line);margin-top:54px;padding:28px 0 64px;
     color:var(--dim);font-size:.87rem}
-  ul{padding-left:22px} li{margin-bottom:7px}
-  .aviso{color:var(--dim);font-size:.87rem;font-style:italic}
+  footer p{max-width:66ch}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
+
+
 <div class="wrap">
 
 <header>
+  <p class="eyebrow">46 campanhas medidas · 04.09.2026</p>
   <h1>Quanto paga clipagem por 1000 visualizações?</h1>
-  <p class="lede">A resposta honesta é: na maioria das campanhas, <strong class="destaque">nada</strong> —
-  e dá para provar isso com uma conta de uma linha. Aqui estão as 46 campanhas que estavam
-  no ar em 4 de setembro de 2026, com o piso de cada uma calculado.</p>
+  <p class="lede">A resposta honesta é: na maioria das campanhas, <strong>nada</strong> — e dá
+  para provar com uma conta de uma linha. Estas são todas as campanhas que estavam no ar em
+  4 de setembro de 2026, com o piso de cada uma calculado.</p>
 </header>
 
 <h2>O CPM não é o número que decide</h2>
@@ -94,54 +132,55 @@ primeiro centavo. Abaixo disso, o valor arredonda para zero.</p>
 <p>Se a sua <strong>mediana de views</strong> não passa do piso, a campanha paga zero por mais
 clipes que você faça. Não é azar, não é o algoritmo, não é falta de esforço. É aritmética.</p>
 
-<p class="aviso">Mediana, não recorde. O recorde aconteceu uma vez. A mediana é o que se repete.</p>
+<p class="fine">Mediana, não recorde. O recorde aconteceu uma vez. A mediana é o que se repete.</p>
 
 <h2>Calculadora do piso</h2>
 
 <div class="card">
   <div class="campos">
     <div>
-      <label for="cpm">CPM da campanha (US$ por 1.000 views)</label>
+      <label for="cpm">CPM (US$ / 1.000 views)</label>
       <input id="cpm" type="number" step="0.01" min="0" value="0.12">
     </div>
     <div>
-      <label for="min">Pagamento mínimo por clipe (US$)</label>
+      <label for="min">Mínimo por clipe (US$)</label>
       <input id="min" type="number" step="0.01" min="0" value="0.50">
     </div>
     <div>
-      <label for="mediana">Sua mediana de views por post</label>
+      <label for="mediana">Sua mediana de views</label>
       <input id="mediana" type="number" step="1" min="0" value="138">
     </div>
   </div>
   <div id="saida"></div>
 </div>
 
-<h2>As 46 campanhas medidas em 04/09/2026</h2>
+<h2>As 46 campanhas medidas</h2>
 
 <div class="stats">
-  <div class="stat"><b id="s-campanhas">—</b><span>campanhas medidas</span></div>
-  <div class="stat"><b id="s-linhas">—</b><span>faixas de pagamento</span></div>
-  <div class="stat"><b id="s-mediana">—</b><span>piso mediano, em views</span></div>
-  <div class="stat"><b id="s-zero">—</b><span>faixas que pagam zero com mediana de 138</span></div>
+  <div class="stat"><b id="s-campanhas">46</b><span>campanhas medidas</span></div>
+  <div class="stat"><b id="s-linhas">118</b><span>faixas de pagamento</span></div>
+  <div class="stat"><b id="s-mediana">1.429</b><span>piso mediano, em views</span></div>
+  <div class="stat"><b id="s-zero">117</b><span>rendem zero com mediana de 138</span></div>
 </div>
 
 <p>Cada campanha paga diferente em cada rede, então a unidade da tabela é a
-<strong>faixa de pagamento</strong>: uma campanha, uma rede. Digite a sua mediana na
-calculadora acima e a coluna de veredito se ajusta.</p>
+<strong>faixa de pagamento</strong>: uma campanha, uma rede. Mude a sua mediana na calculadora
+acima e a coluna de veredito se ajusta. Clique num cabeçalho para reordenar.</p>
 
 <div class="filtro">
-  <input id="busca" type="text" placeholder="filtrar por campanha ou organizador…">
-  <span class="mono" id="contagem" style="color:var(--dim);font-size:.85rem"></span>
+  <input id="busca" type="text" placeholder="filtrar por campanha ou organizador…"
+         aria-label="Filtrar campanhas">
+  <span id="contagem"></span>
 </div>
 
 <div class="tabela-scroll">
   <table>
     <thead><tr>
-      <th data-col="nome">campanha</th>
-      <th data-col="rede">rede</th>
-      <th data-col="cpm">CPM</th>
-      <th data-col="min">mínimo</th>
-      <th data-col="piso">piso (views)</th>
+      <th data-col="nome" tabindex="0">campanha</th>
+      <th data-col="rede" tabindex="0">rede</th>
+      <th data-col="cpm" tabindex="0">CPM</th>
+      <th data-col="min" tabindex="0">mínimo</th>
+      <th data-col="piso" tabindex="0">piso (views)</th>
       <th data-col="veredito">veredito</th>
     </tr></thead>
     <tbody id="corpo"></tbody>
@@ -151,21 +190,20 @@ calculadora acima e a coluna de veredito se ajusta.</p>
 <h2>O que os números dizem</h2>
 
 <p>Medi porque eu mesmo passei seis dias cortando clipe e terminei com
-<strong class="destaque">US$ 0,00</strong>. Não porque os clipes eram ruins — porque eu nunca
-tinha feito essa conta. Quando finalmente medi todas as campanhas que estavam no ar naquele
-dia, o quadro era este:</p>
+<strong class="zero">US$ 0,00</strong>. Não porque os clipes eram ruins — porque eu nunca tinha
+feito essa conta. Quando finalmente medi todas as campanhas no ar naquele dia:</p>
 
 <ul>
-  <li>O piso mediano é de <strong>1.429 views por post</strong>. Metade das faixas exige mais que isso.</li>
+  <li>O piso mediano é de <strong>1.429 views por post</strong>. Metade das faixas exige mais.</li>
   <li>Existem faixas com piso de <strong>28.000</strong> e até <strong>40.000</strong> views — por clipe.</li>
   <li>De 118 faixas de pagamento, exatamente <strong class="ok">uma</strong> paga desde a primeira view.</li>
   <li>Um card anunciava <span class="mono">$1 por 1k</span>. A tabela real era
       <span class="mono">$0,12 por 1k</span> com mínimo de $0,50 — piso de 4.167 views.</li>
 </ul>
 
-<p>Nada disso quer dizer que clipagem não paga. Quer dizer que <strong>a campanha certa para
-o seu tamanho de conta</strong> é uma decisão de aritmética, e que ela pode ser tomada antes
-de você perder a noite editando.</p>
+<p>Nada disso quer dizer que clipagem não paga. Quer dizer que <strong>a campanha certa para o
+seu tamanho de conta</strong> é uma decisão de aritmética, e que ela pode ser tomada antes de
+você perder a noite editando.</p>
 
 <h2>Como usar isso na prática</h2>
 
@@ -181,15 +219,15 @@ de você perder a noite editando.</p>
 </ol>
 
 <div class="cta">
-  <h3 style="margin-top:0">Se quiser automatizar essa conta</h3>
-  <p style="margin-bottom:8px">Existe um script em Python que lê a página pública de uma campanha
-  e imprime CPM, mínimo, teto e o piso já calculado — em uma campanha só, numa lista inteira,
-  ou comparando com a sua mediana. Vem com o relatório completo das 46 campanhas acima.
-  Sem dependência, sem chave de API, roda na sua máquina.</p>
-  <p style="margin-bottom:0"><a href="https://clipfloor.gumroad.com/l/flfmqp">clipfloor — US$ 7</a>
-  &nbsp;·&nbsp; <a href="https://whop.com/clipfloor/clipfloor-will-this-clipping-campaign-actually-pay-you/">também no Whop</a></p>
-  <p style="margin:10px 0 0;font-size:.85rem;color:var(--dim)">A tabela e a calculadora desta
-  página são de graça e continuam de graça. O script é para quem quer fazer isso em escala.</p>
+  <h3>Se quiser automatizar essa conta</h3>
+  <p>Existe um script em Python que lê a página pública de uma campanha e imprime CPM, mínimo,
+  teto e o piso já calculado — em uma campanha só, numa lista inteira, ou comparando com a sua
+  mediana. Vem com o relatório completo das 46 campanhas acima. Sem dependência, sem chave de
+  API, roda na sua máquina.</p>
+  <p><a href="https://clipfloor.gumroad.com/l/flfmqp">clipfloor — US$ 7</a> &nbsp;·&nbsp;
+  <a href="https://whop.com/clipfloor/clipfloor-will-this-clipping-campaign-actually-pay-you/">também no Whop</a></p>
+  <p class="fine" style="margin-bottom:0">A tabela e a calculadora desta página são de graça e
+  continuam de graça. O script é para quem quer fazer isso em escala.</p>
 </div>
 
 <h2>Perguntas que aparecem sempre</h2>
@@ -201,13 +239,13 @@ Quem tem canal grande passa do piso sem perceber que ele existe. Quem está come
 todo dia e acha que é culpa do próprio conteúdo.</p>
 
 <h3>E se eu postar muito mais clipes?</h3>
-<p>Não resolve, e é a parte que mais custa dinheiro em tempo. O piso é <strong>por post</strong>,
-não acumulado. Dez posts de 138 views numa campanha com piso de 1.000 rendem zero, dez vezes.</p>
+<p>Não resolve, e é a parte que mais custa em tempo. O piso é <strong>por post</strong>, não
+acumulado. Dez posts de 138 views numa campanha com piso de 1.000 rendem zero, dez vezes.</p>
 
 <h3>Esses números ainda valem?</h3>
 <p>A tabela é um retrato de <strong>4 de setembro de 2026</strong>. Campanhas entram, saem e
-mudam de tabela toda semana — trate os números como exemplo, e refaça a conta na campanha que
-você for pegar. A fórmula não muda.</p>
+mudam de tabela toda semana — trate os números como exemplo e refaça a conta na campanha que
+você for pegar. A fórmula é que não muda.</p>
 
 <h3>De onde vieram os dados?</h3>
 <p>Das páginas públicas das próprias campanhas, lidas uma a uma e conferidas. Nenhum número
@@ -223,14 +261,15 @@ chute.</p>
 </div>
 
 <script>
-let DADOS = [], LINHAS = [], ordem = {col:'piso', asc:true};
+const DADOS = [{"nome":"Call of Duty - Modern Warfare 4 Multiplayer Beta Gameplay Clipping","org":"Clipping Culture","verba":"$25.4K / $105K","linhas":[{"rede":"TikTok","cpm":1.75,"min":3.5,"teto":"$2.5K","piso":2000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.5,"min":4.5,"teto":"$2.5K","piso":3000,"paga_desde_1":false},{"rede":"YouTube","cpm":1.75,"min":5.25,"teto":"$2.5K","piso":3000,"paga_desde_1":false}]},{"nome":"Lovable Clipping","org":"Lovable Clipping","verba":"$6K / $50K","linhas":[{"rede":"YouTube","cpm":1.0,"min":0.99,"teto":"$1K","piso":990,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":0.99,"teto":"$1K","piso":990,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":0.99,"teto":"$1K","piso":990,"paga_desde_1":false}]},{"nome":"Yomi Denzel Clipping - 1$ par 1000 vues","org":"Yomi Denzel Clipping","verba":"$215K / $238K","linhas":[{"rede":"Instagram","cpm":1.0,"min":28.0,"teto":"$105","piso":28000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":28.0,"teto":"$105","piso":28000,"paga_desde_1":false},{"rede":"YouTube","cpm":1.0,"min":28.0,"teto":"$105","piso":28000,"paga_desde_1":false}]},{"nome":"ForgeGUI [Roblox]","org":"BloxClips","verba":"$113.9K / $130K","linhas":[{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$1.1K","piso":1000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$1.1K","piso":1000,"paga_desde_1":false},{"rede":"YouTube","cpm":0.5,"min":0.5,"teto":"$1.1K","piso":1000,"paga_desde_1":false}]},{"nome":"Double Coverage Podcast | Dedicated Account | $20,000 Clipping Campaign","org":"Reach","verba":"$16.5K / $33.6K","linhas":[{"rede":"YouTube","cpm":1.5,"min":15.0,"teto":"$300","piso":10000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.5,"min":15.0,"teto":"$300","piso":10000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.5,"min":15.0,"teto":"$300","piso":10000,"paga_desde_1":false},{"rede":"X","cpm":2.0,"min":20.0,"teto":"$300","piso":10000,"paga_desde_1":false}]},{"nome":"Backyard Breaks [Clipping Campaign]","org":"ClipHouse","verba":"$27.3K / $32.2K","linhas":[{"rede":"YouTube","cpm":2.0,"min":2.0,"teto":"$250","piso":1000,"paga_desde_1":false},{"rede":"Instagram","cpm":2.0,"min":2.0,"teto":"$250","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":2.0,"min":2.0,"teto":"$250","piso":1000,"paga_desde_1":false}]},{"nome":"INDEPENDENT VOTER NEWS","org":"ClipHaus","verba":"$7.1K / $15K","linhas":[{"rede":"Instagram","cpm":2.0,"min":2.0,"teto":"$200","piso":1000,"paga_desde_1":false},{"rede":"YouTube","cpm":2.0,"min":2.0,"teto":"$200","piso":1000,"paga_desde_1":false},{"rede":"X","cpm":2.0,"min":2.0,"teto":"$200","piso":1000,"paga_desde_1":false}]},{"nome":"LiveMap Clipping | $100k Budget","org":"Bounty Network","verba":"$1.6K / $45K","linhas":[{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$500","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$500","piso":1000,"paga_desde_1":false}]},{"nome":"ROBTHEBANK CLIPS $10/10,000","org":"RobTheBank Clips 2.0","verba":"$29.8K / $31.5K","linhas":[{"rede":"TikTok","cpm":1.0,"min":10.0,"teto":"$150","piso":10000,"paga_desde_1":false}]},{"nome":"Omoggle Clipping","org":"ClipUp Official","verba":"$11.3K / $12K","linhas":[{"rede":"Instagram","cpm":0.7,"min":1.4,"teto":"$275","piso":2000,"paga_desde_1":false},{"rede":"TikTok","cpm":0.7,"min":1.4,"teto":"$275","piso":2000,"paga_desde_1":false},{"rede":"YouTube","cpm":0.7,"min":1.3,"teto":"$275","piso":1857,"paga_desde_1":false}]},{"nome":"[VIRAL] My Mini Mom & Baby Clipping","org":"Clip Influence","verba":"$7.3K / $10K","linhas":[{"rede":"Instagram","cpm":1.25,"min":1.5,"teto":"$300","piso":1200,"paga_desde_1":false},{"rede":"TikTok","cpm":1.25,"min":1.5,"teto":"$300","piso":1200,"paga_desde_1":false},{"rede":"YouTube","cpm":0.8,"min":2.0,"teto":"$300","piso":2500,"paga_desde_1":false}]},{"nome":"Bible BFF Clipping | $10K Budget | $1.00 CPM","org":"Clipix","verba":"$3.8K / $10K","linhas":[{"rede":"YouTube","cpm":0.5,"min":1.0,"teto":"$200","piso":2000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$300","piso":1000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$300","piso":1000,"paga_desde_1":false}]},{"nome":"REN.Y.C Music Clipping | $10k Budget | $1 CPM","org":"Propaganda","verba":"$6.7K / $10K","linhas":[{"rede":"YouTube","cpm":1.0,"min":1.0,"teto":"$300","piso":1000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$300","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$300","piso":1000,"paga_desde_1":false}]},{"nome":"Upload faceless slideshows","org":"Moon Clips","verba":"$7.3K / $10K","linhas":[{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$1K","piso":1000,"paga_desde_1":false}]},{"nome":"ARZ Urus Clipping","org":"Arz Urus Clipping","verba":"$9.4K / $10K","linhas":[{"rede":"TikTok","cpm":0.5,"min":10.0,"teto":"$50","piso":20000,"paga_desde_1":false},{"rede":"Instagram","cpm":0.75,"min":7.5,"teto":"$75","piso":10000,"paga_desde_1":false}]},{"nome":"CEO Podcast Clipping | Part 2","org":"The Clip Ship","verba":"$3.2K / $6K","linhas":[{"rede":"YouTube","cpm":3.0,"min":4.5,"teto":"$600","piso":1500,"paga_desde_1":false},{"rede":"Instagram","cpm":3.0,"min":4.5,"teto":"$600","piso":1500,"paga_desde_1":false},{"rede":"TikTok","cpm":3.0,"min":4.5,"teto":"$600","piso":1500,"paga_desde_1":false}]},{"nome":"TrueFitness X Syndciate","org":"Syndicate","verba":"$294.61 / $5K","linhas":[{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$600","piso":1000,"paga_desde_1":false}]},{"nome":"\"BLINKxLIZ\" CLIPPING CAMPAIGN | $5000 | $1.5 (CPM)","org":"CLIP IT UP","verba":"$3.7K / $5K","linhas":[{"rede":"Instagram","cpm":1.0,"min":2.0,"teto":"$150","piso":2000,"paga_desde_1":false},{"rede":"YouTube","cpm":1.0,"min":2.0,"teto":"$150","piso":2000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":2.0,"teto":"$150","piso":2000,"paga_desde_1":false},{"rede":"X","cpm":1.0,"min":2.0,"teto":"$150","piso":2000,"paga_desde_1":false}]},{"nome":"UGC Repurposing [International]","org":"Content Rewards UGC [International]","verba":"$1.1K / $5K","linhas":[{"rede":"YouTube","cpm":0.5,"min":1.0,"teto":"$500","piso":2000,"paga_desde_1":false},{"rede":"Instagram","cpm":0.5,"min":0.5,"teto":"$500","piso":1000,"paga_desde_1":false},{"rede":"X","cpm":0.5,"min":0.5,"teto":"$500","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":0.5,"min":0.5,"teto":"$500","piso":1000,"paga_desde_1":false}]},{"nome":"Hello Nancy- Clipping ( Dedicated Page)","org":"Hello Nancy","verba":"$2.8K / $4.7K","linhas":[{"rede":"YouTube","cpm":1.0,"min":1.0,"teto":"$150","piso":1000,"paga_desde_1":false}]},{"nome":"Antoine Sallis Clipping | $1.50 CPM | All Platforms","org":"Rendr Studios","verba":"$1.5K / $2.8K","linhas":[{"rede":"Instagram","cpm":1.5,"min":1.0,"teto":"$300","piso":667,"paga_desde_1":false},{"rede":"YouTube","cpm":2.0,"min":1.0,"teto":"$300","piso":500,"paga_desde_1":false},{"rede":"TikTok","cpm":1.5,"min":1.0,"teto":"$300","piso":667,"paga_desde_1":false}]},{"nome":"Ali-A Fortnite Map 1v1 UGC Campaign","org":"Ali-A","verba":"$615.08 / $2.5K","linhas":[{"rede":"Instagram","cpm":2.0,"min":20.0,"teto":"$100","piso":10000,"paga_desde_1":false},{"rede":"YouTube","cpm":2.0,"min":20.0,"teto":"$100","piso":10000,"paga_desde_1":false},{"rede":"TikTok","cpm":2.0,"min":20.0,"teto":"$100","piso":10000,"paga_desde_1":false}]},{"nome":"Whoods's Campaign","org":"Whoods Clips","verba":"$1.6K / $2.5K","linhas":[{"rede":"YouTube","cpm":1.0,"min":4.0,"teto":"$450","piso":4000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":4.0,"teto":"$450","piso":4000,"paga_desde_1":false}]},{"nome":"DumbMoneyHunter 's Clipping","org":"Dumb Money Hunter (Maven)","verba":"$1.3K / $2.3K","linhas":[{"rede":"Instagram","cpm":1.2,"min":0.4,"teto":"$50","piso":333,"paga_desde_1":false},{"rede":"TikTok","cpm":1.2,"min":0.4,"teto":"$100","piso":333,"paga_desde_1":false},{"rede":"YouTube","cpm":1.2,"min":0.4,"teto":"$50","piso":333,"paga_desde_1":false},{"rede":"X","cpm":1.2,"min":0.4,"teto":"$50","piso":333,"paga_desde_1":false}]},{"nome":"CLIPPING ESPAÑOL - Daniel Curto","org":"ClippiXStudio Español","verba":"$620.79 / $2K","linhas":[{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$100","piso":1000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$100","piso":1000,"paga_desde_1":false}]},{"nome":"Arpy Brown & Kapote - You Used to Hold Me | Audio Only Campaign","org":"Music Promo Clippers","verba":"$1.4K / $2K","linhas":[{"rede":"YouTube","cpm":0.12,"min":0.7,"teto":"$30","piso":5833,"paga_desde_1":false},{"rede":"TikTok","cpm":0.12,"min":0.5,"teto":"$30","piso":4167,"paga_desde_1":false},{"rede":"Instagram","cpm":0.12,"min":0.6,"teto":"$28","piso":5000,"paga_desde_1":false},{"rede":"X","cpm":1.0,"min":40.0,"teto":"$40","piso":40000,"paga_desde_1":false}]},{"nome":"Ann Marie \"Drunkin' Love\" $2 per 1k views","org":"Any Given Friday - Clipping","verba":"$969.58 / $1.5K","linhas":[{"rede":"TikTok","cpm":2.0,"min":0.0,"teto":"$2","piso":0,"paga_desde_1":true}]},{"nome":"Swaggy C | Clipping Campaign","org":"Clips and Views","verba":"$1.4K / $1.5K","linhas":[{"rede":"YouTube","cpm":1.5,"min":3.0,"teto":"$150","piso":2000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.5,"min":3.0,"teto":"$150","piso":2000,"paga_desde_1":false}]},{"nome":"NIVEL 0 - 0,40$ CPM - 100$ MAX","org":"Golden Circle Clipping","verba":"$1.2K / $1.5K","linhas":[{"rede":"YouTube","cpm":0.4,"min":4.0,"teto":"$100","piso":10000,"paga_desde_1":false},{"rede":"Instagram","cpm":0.4,"min":4.0,"teto":"$100","piso":10000,"paga_desde_1":false},{"rede":"TikTok","cpm":0.4,"min":4.0,"teto":"$100","piso":10000,"paga_desde_1":false}]},{"nome":"Luke Bryan - \"Crooked Rows of Corn\" [8149]","org":"TikCut","verba":"$600.92 / $1.2K","linhas":[{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$100","piso":1000,"paga_desde_1":false}]},{"nome":"Lowkey Discord | $3.00 CPM | EASY","org":"Verrata Media","verba":"$235.77 / $1K","linhas":[{"rede":"Instagram","cpm":3.0,"min":3.0,"teto":"$100","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":3.0,"min":3.0,"teto":"$100","piso":1000,"paga_desde_1":false}]},{"nome":"Def Manic - UNDERGROUND4EVA Clipping","org":"Def Manic","verba":"$938.08 / $1K","linhas":[{"rede":"TikTok","cpm":2.0,"min":6.0,"teto":"$100","piso":3000,"paga_desde_1":false}]},{"nome":"TradeAxis System Campaign","org":"Clip Track","verba":"$453.81 / $1K","linhas":[{"rede":"Instagram","cpm":2.0,"min":3.0,"teto":"$100","piso":1500,"paga_desde_1":false},{"rede":"TikTok","cpm":2.0,"min":3.0,"teto":"$100","piso":1500,"paga_desde_1":false},{"rede":"YouTube","cpm":1.5,"min":1.5,"teto":"$100","piso":1000,"paga_desde_1":false}]},{"nome":"Tash Blake - oUT mY mIND Music Video Hype Clips [8070]","org":"Sound Network","verba":"$414.20 / $1K","linhas":[{"rede":"TikTok","cpm":1.5,"min":1.5,"teto":"$100","piso":1000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$100","piso":1000,"paga_desde_1":false}]},{"nome":"Janine Berdin Clipping Campaign","org":"Kyro Clips","verba":"$985.08 / $1K","linhas":[{"rede":"TikTok","cpm":1.5,"min":1.5,"teto":"$400","piso":1000,"paga_desde_1":false}]},{"nome":"OneRest( Dedicated page)","org":"OneRest","verba":"$667.41 / $1K","linhas":[{"rede":"Instagram","cpm":1.5,"min":1.5,"teto":"$150","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.5,"min":1.5,"teto":"$150","piso":1000,"paga_desde_1":false},{"rede":"YouTube","cpm":1.5,"min":1.5,"teto":"$150","piso":1000,"paga_desde_1":false}]},{"nome":"Tyson Yoshi Campaign","org":"Clippy","verba":"$712.86 / $1K","linhas":[{"rede":"YouTube","cpm":1.5,"min":3.0,"teto":"$100","piso":2000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.5,"min":3.0,"teto":"$100","piso":2000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.5,"min":3.0,"teto":"$100","piso":2000,"paga_desde_1":false},{"rede":"X","cpm":1.5,"min":3.0,"teto":"$100","piso":2000,"paga_desde_1":false}]},{"nome":"The Real Wolf Of Wall Street Clipping Campaign","org":"Next Wave Viral | ClipFarm","verba":"$893.06 / $1K","linhas":[{"rede":"YouTube","cpm":1.0,"min":3.0,"teto":"$150","piso":3000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":3.0,"teto":"$200","piso":3000,"paga_desde_1":false},{"rede":"X","cpm":1.0,"min":3.0,"teto":"$200","piso":3000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":3.0,"teto":"$200","piso":3000,"paga_desde_1":false}]},{"nome":"Clipping DrSpaghetti","org":"DrSpaghetti Clippers","verba":"$407.30 / $1K","linhas":[{"rede":"YouTube","cpm":1.0,"min":1.0,"teto":"$125","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$125","piso":1000,"paga_desde_1":false}]},{"nome":"Oussenix's Campaign","org":"Oussenix's Streamer Clips","verba":"$188.62 / $1K","linhas":[{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$100","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$100","piso":1000,"paga_desde_1":false},{"rede":"YouTube","cpm":1.0,"min":1.0,"teto":"$100","piso":1000,"paga_desde_1":false}]},{"nome":"Doug Elk’s X Oceans [Official Campaign]","org":"Atlis","verba":"$681.27 / $1K","linhas":[{"rede":"TikTok","cpm":1.0,"min":3.0,"teto":"$25","piso":3000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":3.0,"teto":"$25","piso":3000,"paga_desde_1":false},{"rede":"YouTube","cpm":1.0,"min":3.0,"teto":"$25","piso":3000,"paga_desde_1":false}]},{"nome":"Sus.Ai","org":"VantaClip","verba":"$667.42 / $1K","linhas":[{"rede":"YouTube","cpm":1.0,"min":1.0,"teto":"$300","piso":1000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$300","piso":1000,"paga_desde_1":false},{"rede":"TikTok","cpm":1.0,"min":1.0,"teto":"$300","piso":1000,"paga_desde_1":false}]},{"nome":"Yunmakai - The Night Spider-Man, Odyssey, sports, TV & movies.","org":"Lunas Lake","verba":"$550.16 / $1K","linhas":[{"rede":"TikTok","cpm":1.0,"min":2.0,"teto":"$150","piso":2000,"paga_desde_1":false},{"rede":"Instagram","cpm":1.0,"min":1.0,"teto":"$150","piso":1000,"paga_desde_1":false}]},{"nome":"Roblox Content Rewards – Make Shorts, Get Paid Fast!","org":"GSN Clips","verba":"$474.33 / $1K","linhas":[{"rede":"YouTube","cpm":1.0,"min":1.0,"teto":"$100","piso":1000,"paga_desde_1":false}]},{"nome":"Kaazty Streamer Clipping","org":"Funnel Clips Community","verba":"$708.75 / $1K","linhas":[{"rede":"TikTok","cpm":0.8,"min":2.0,"teto":"$125","piso":2500,"paga_desde_1":false},{"rede":"Instagram","cpm":0.8,"min":2.0,"teto":"$125","piso":2500,"paga_desde_1":false},{"rede":"YouTube","cpm":0.85,"min":1.2,"teto":"$200","piso":1412,"paga_desde_1":false}]},{"nome":"INOUT Games — Viral Game Clips |Boosted RTP Access","org":"INOUT GAMES","verba":"$170.23 / $1K","linhas":[{"rede":"YouTube","cpm":0.7,"min":0.7,"teto":"$500","piso":1000,"paga_desde_1":false},{"rede":"Instagram","cpm":0.7,"min":1.0,"teto":"$500","piso":1429,"paga_desde_1":false},{"rede":"TikTok","cpm":0.7,"min":1.0,"teto":"$500","piso":1429,"paga_desde_1":false}]}];
 
+let LINHAS = [], ordem = {col:'piso', asc:true};
 const fmt = n => n.toLocaleString('pt-BR');
-
-function medianaAtual(){
+const esc = s => { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+const medianaAtual = () => {
   const v = parseFloat(document.getElementById('mediana').value);
   return isFinite(v) && v >= 0 ? v : 0;
-}
+};
 
 function calcular(){
   const cpm = parseFloat(document.getElementById('cpm').value);
@@ -240,6 +279,7 @@ function calcular(){
 
   if(!isFinite(cpm) || cpm <= 0){
     out.innerHTML = '<span style="color:var(--dim)">Informe um CPM maior que zero.</span>';
+    renderizar();
     return;
   }
   const piso = Math.ceil((min / cpm) * 1000);
@@ -247,86 +287,71 @@ function calcular(){
   if(piso === 0){
     veredito = '<span class="ok">Sem piso: paga desde a primeira view.</span>';
   } else if(med >= piso){
-    const sobra = Math.round((med/piso - 1) * 100);
-    veredito = '<span class="ok">Sua mediana passa do piso com folga de ' + sobra + '%.</span>';
+    veredito = '<span class="ok">Sua mediana passa do piso com folga de '
+      + Math.round((med/piso - 1) * 100) + '%.</span>';
   } else {
-    const falta = piso - med;
-    veredito = '<span class="destaque">Sua mediana não alcança o piso. '
-      + 'Faltam ' + fmt(falta) + ' views por post. Esta campanha paga US$ 0,00 para você.</span>';
+    veredito = '<span class="zero">Sua mediana não alcança o piso. Faltam '
+      + fmt(piso - med) + ' views por post. Esta campanha paga US$ 0,00 para você.</span>';
   }
   out.innerHTML =
     'piso = ' + min.toFixed(2) + ' ÷ ' + cpm.toFixed(2) + ' × 1000<br>'
-    + 'piso = <span class="num">' + fmt(piso) + ' views</span> por post, '
-    + 'para ganhar o primeiro centavo<br>'
-    + 'sua mediana = <span class="num">' + fmt(med) + ' views</span><br><br>'
-    + veredito;
+    + 'piso = <span class="num">' + fmt(piso) + ' views</span> por post, para ganhar o primeiro centavo<br>'
+    + 'sua mediana = <span class="num">' + fmt(med) + ' views</span><br><br>' + veredito;
   renderizar();
 }
 
 function renderizar(){
   const med = medianaAtual();
   const termo = document.getElementById('busca').value.trim().toLowerCase();
-  let ls = LINHAS.filter(l => !termo
-    || l.nome.toLowerCase().includes(termo)
-    || l.org.toLowerCase().includes(termo));
+  const ls = LINHAS.filter(l => !termo
+    || l.busca.includes(termo));
 
   const dir = ordem.asc ? 1 : -1;
   ls.sort((a,b) => {
     const x = a[ordem.col], y = b[ordem.col];
-    if(typeof x === 'number') return (x - y) * dir;
-    return String(x).localeCompare(String(y), 'pt-BR') * dir;
+    return (typeof x === 'number' ? (x - y) : String(x).localeCompare(String(y),'pt-BR')) * dir;
   });
 
   document.getElementById('corpo').innerHTML = ls.map(l => {
     const paga = l.piso === 0 || med >= l.piso;
-    const txt = l.piso === 0 ? 'paga desde a 1ª view'
-      : (paga ? 'sua mediana passa' : 'rende zero');
-    return '<tr>'
-      + '<td class="nome">' + l.nome + '<br><span style="color:var(--dim);font-size:.9em">'
-        + l.org + '</span></td>'
-      + '<td>' + l.rede + '</td>'
-      + '<td>$' + l.cpm.toFixed(2) + '</td>'
-      + '<td>$' + l.min.toFixed(2) + '</td>'
-      + '<td>' + fmt(l.piso) + '</td>'
-      + '<td class="' + (paga ? 'ok' : 'destaque') + '">' + txt + '</td>'
-      + '</tr>';
+    const txt = l.piso === 0 ? 'paga desde a 1ª view' : (paga ? 'sua mediana passa' : 'rende zero');
+    return '<tr><td class="nome">' + l.nome + '<span class="org">' + l.org + '</span></td>'
+      + '<td>' + l.rede + '</td><td>$' + l.cpm.toFixed(2) + '</td><td>$' + l.min.toFixed(2)
+      + '</td><td>' + fmt(l.piso) + '</td>'
+      + '<td class="' + (paga ? 'ok' : 'zero') + '">' + txt + '</td></tr>';
   }).join('');
 
-  document.getElementById('contagem').textContent =
-    ls.length + ' de ' + LINHAS.length + ' faixas';
+  document.getElementById('contagem').textContent = ls.length + ' de ' + LINHAS.length + ' faixas';
 }
 
-function esc(s){ const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+DADOS.forEach(c => c.linhas.forEach(l => LINHAS.push({
+  nome: esc(c.nome), org: esc(c.org), rede: l.rede, cpm: l.cpm, min: l.min,
+  piso: l.paga_desde_1 ? 0 : l.piso,
+  busca: (c.nome + ' ' + c.org).toLowerCase()
+})));
 
-fetch('dados.json').then(r => r.json()).then(cs => {
-  DADOS = cs;
-  LINHAS = [];
-  cs.forEach(c => c.linhas.forEach(l => LINHAS.push({
-    nome: esc(c.nome), org: esc(c.org), rede: l.rede,
-    cpm: l.cpm, min: l.min, piso: l.paga_desde_1 ? 0 : l.piso
-  })));
-
-  const pisos = LINHAS.map(l => l.piso).sort((a,b) => a - b);
-  document.getElementById('s-campanhas').textContent = cs.length;
-  document.getElementById('s-linhas').textContent = LINHAS.length;
-  document.getElementById('s-mediana').textContent = fmt(pisos[Math.floor(pisos.length/2)]);
-  document.getElementById('s-zero').textContent = LINHAS.filter(l => l.piso > 138).length;
-
-  renderizar();
-});
+const pisos = LINHAS.map(l => l.piso).sort((a,b) => a - b);
+document.getElementById('s-campanhas').textContent = DADOS.length;
+document.getElementById('s-linhas').textContent = LINHAS.length;
+document.getElementById('s-mediana').textContent = fmt(pisos[Math.floor(pisos.length/2)]);
+document.getElementById('s-zero').textContent = LINHAS.filter(l => l.piso > 138).length;
 
 ['cpm','min','mediana'].forEach(id =>
   document.getElementById(id).addEventListener('input', calcular));
 document.getElementById('busca').addEventListener('input', renderizar);
-document.querySelectorAll('th[data-col]').forEach(th =>
-  th.addEventListener('click', () => {
+document.querySelectorAll('th[data-col]').forEach(th => {
+  const act = () => {
     const c = th.dataset.col;
     if(c === 'veredito') return;
-    ordem = {col: c, asc: ordem.col === c ? !ordem.asc : true};
+    ordem = {col:c, asc: ordem.col === c ? !ordem.asc : true};
     renderizar();
-  }));
+  };
+  th.addEventListener('click', act);
+  th.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); act(); }});
+});
 
 calcular();
 </script>
+
 </body>
 </html>
